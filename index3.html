@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trendel Lumber Company Inc. | Premium Concept III</title>
+  <meta name="description" content="Trendel Lumber premium concept III. Bright editorial style for Ottawa and Franklin County's locally owned drive-through lumber yard." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f5f0e6;
+      --paper: #fffaf0;
+      --ink: #191611;
+      --muted: #564d40;
+      --tan: #e7d8bd;
+      --line: rgba(25, 22, 17, 0.16);
+      --accent: #bb5e2a;
+      --accent-deep: #884221;
+      --card: rgba(255, 251, 243, 0.9);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      cursor: url("Mouse-cursor.png") 4 4, auto;
+    }
+    a, button, .cta, .btn-lite, .submit, input, select, textarea, label {
+      cursor: url("Mouse-cursor.png") 4 4, pointer;
+    }
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(245, 240, 230, 0.9), rgba(245, 240, 230, 0.9)),
+        url("Background2.jpg") center/cover fixed no-repeat;
+    }
+    .page {
+      width: min(1240px, 94vw);
+      margin: 0 auto;
+      position: relative;
+    }
+    .frame {
+      position: fixed;
+      inset: 1rem;
+      border: 1px solid rgba(25, 22, 17, 0.08);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .topbar {
+      position: sticky;
+      top: 0.75rem;
+      z-index: 25;
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 250, 241, 0.86);
+      backdrop-filter: blur(10px);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.6rem 0.7rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 3px;
+    }
+    .brand strong { display: block; font-size: 0.92rem; font-weight: 800; }
+    .brand small { color: var(--muted); font-size: 0.72rem; }
+
+    nav { justify-self: center; display: flex; gap: 1.15rem; }
+    nav a {
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.35rem 0.2rem;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0.12rem;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 220ms ease;
+    }
+    nav a:hover::after { width: 100%; }
+    .cta {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.68rem 1.04rem;
+      font-weight: 800;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-deep), var(--accent));
+      box-shadow: 0 10px 20px rgba(95, 46, 23, 0.26);
+    }
+    .flashable {
+      position: relative;
+      overflow: hidden;
+    }
+    .flashable::after {
+      content: "";
+      position: absolute;
+      top: -140%;
+      left: -40%;
+      width: 36%;
+      height: 320%;
+      transform: rotate(22deg) translateX(-220%);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.52), transparent);
+      transition: transform 640ms ease;
+      pointer-events: none;
+    }
+    .flashable:hover::after,
+    .flashable.flash-now::after {
+      transform: rotate(22deg) translateX(640%);
+    }
+    .flashable.flash-now {
+      animation: ctaPulse3 650ms ease-out;
+    }
+    @keyframes ctaPulse3 {
+      0% { box-shadow: 0 0 0 0 rgba(187, 94, 42, 0.46), 0 10px 20px rgba(95, 46, 23, 0.26); }
+      100% { box-shadow: 0 0 0 14px rgba(187, 94, 42, 0), 0 10px 20px rgba(95, 46, 23, 0.26); }
+    }
+
+    section { padding: 4.2rem 0; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 1.1rem;
+      align-items: stretch;
+      padding-top: 3.2rem;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--card);
+      backdrop-filter: blur(5px);
+      overflow: hidden;
+      box-shadow: 0 16px 30px rgba(35, 24, 12, 0.12);
+    }
+    .hero-copy { padding: 1.2rem; }
+    .eyebrow {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      font-size: 0.73rem;
+      color: #7c6850;
+      font-weight: 700;
+    }
+    h1, h2, h3 { margin: 0; color: var(--ink); }
+    h1 {
+      margin-top: 0.55rem;
+      font-family: "Instrument Serif", serif;
+      font-size: clamp(2.05rem, 5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 0.97;
+      max-width: 14ch;
+    }
+    .lead { color: var(--muted); max-width: 64ch; }
+    .hero-actions { margin-top: 1.1rem; display: flex; gap: 0.65rem; flex-wrap: wrap; }
+    .btn-lite {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.66rem 1rem;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.72);
+    }
+    .chips { margin-top: 1rem; display: flex; gap: 0.45rem; flex-wrap: wrap; }
+    .chips span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.32rem 0.7rem;
+      font-size: 0.82rem;
+      color: #3c342b;
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .hero-right {
+      display: grid;
+      grid-template-rows: 1fr 0.9fr;
+      gap: 1.1rem;
+    }
+    .feature-img img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 290px; }
+    .factlist { padding: 1.05rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .fact {
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 0.65rem;
+    }
+    .fact b { display: block; font-size: 0.78rem; color: #7a674e; margin-bottom: 0.2rem; }
+    .fact span { color: #2a2118; font-weight: 700; }
+
+    .split-title {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      align-items: end;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .split-title p {
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      color: #8a7357;
+      font-weight: 700;
+    }
+    .split-title h2 {
+      font-family: "Instrument Serif", serif;
+      font-weight: 400;
+      font-size: clamp(1.7rem, 4vw, 3.2rem);
+      line-height: 0.98;
+    }
+
+    .materials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .mat {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 250, 240, 0.92);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 44% 56%;
+      min-height: 180px;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+    .mat:hover { transform: translateY(-4px); box-shadow: 0 14px 24px rgba(35, 24, 12, 0.14); }
+    .mat img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .mat .copy { padding: 0.85rem; }
+    .mat h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+    .mat p { margin: 0; color: #564b3d; font-size: 0.92rem; }
+
+    .product-tags {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .product-tags span {
+      border: 1px solid rgba(33, 27, 20, 0.2);
+      background: rgba(255, 250, 240, 0.88);
+      border-radius: 999px;
+      padding: 0.34rem 0.7rem;
+      font-size: 0.8rem;
+      color: #3c3228;
+      font-weight: 700;
+    }
+
+    .services {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(130deg, rgba(249, 237, 215, 0.94), rgba(238, 222, 191, 0.94));
+      padding: 0.9rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+    .services article {
+      border: 1px solid rgba(40, 31, 21, 0.16);
+      border-radius: 11px;
+      background: rgba(255, 252, 246, 0.84);
+      padding: 0.8rem;
+    }
+    .services h3 { font-size: 1rem; margin-bottom: 0.32rem; }
+    .services p { margin: 0; color: #5a4f3f; }
+
+    .community {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+    .community article {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255, 251, 245, 0.92);
+    }
+    .community img { width: 100%; height: 170px; object-fit: cover; display: block; }
+    .community div { padding: 0.75rem; font-weight: 700; color: #2e261d; }
+
+    .contact {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper);
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.95rem;
+    }
+    .contact p, .contact li { color: #453c30; }
+    .contact ul { margin: 0.7rem 0 0; padding-left: 1.1rem; }
+    .map {
+      margin-top: 0.8rem;
+      border: 1px solid rgba(25, 22, 17, 0.13);
+      border-radius: 11px;
+      overflow: hidden;
+    }
+    .map iframe { width: 100%; height: 250px; border: 0; display: block; }
+    form { display: grid; gap: 0.68rem; }
+    label { display: grid; gap: 0.33rem; color: #2c251d; font-weight: 700; font-size: 0.92rem; }
+    input, select, textarea {
+      border: 1px solid rgba(25, 22, 17, 0.23);
+      background: #fff;
+      border-radius: 10px;
+      padding: 0.63rem 0.68rem;
+      font: inherit;
+      color: #201912;
+    }
+    .submit {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.72rem 1rem;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-deep), var(--accent));
+      box-shadow: 0 10px 18px rgba(112, 58, 30, 0.25);
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 1.3rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      color: #4f4435;
+      font-weight: 700;
+    }
+    footer a { color: #3b2f22; text-decoration: none; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 520ms ease, transform 520ms ease;
+    }
+    .reveal.show { opacity: 1; transform: none; }
+
+    @media (max-width: 1100px) {
+      nav { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .factlist { grid-template-columns: 1fr 1fr; }
+      .split-title { grid-template-columns: 1fr; }
+      .materials, .community { grid-template-columns: 1fr 1fr; }
+      .services { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .materials, .community { grid-template-columns: 1fr; }
+      .mat { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.4rem; }
+      .frame { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame"></div>
+  <div class="page">
+    <header class="topbar reveal">
+      <a class="brand" href="#top">
+        <img src="logo_trendel.png" alt="Trendel Lumber logo">
+        <span>
+          <strong>Trendel Lumber Company Inc.</strong>
+          <small>Where Service Matters</small>
+        </span>
+      </a>
+      <nav>
+        <a href="#materials">Materials</a>
+        <a href="#services">Services</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta flashable attention" href="#contact">Get a Quote</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <article class="panel hero-copy reveal">
+          <p class="eyebrow">Ottawa, KS and Franklin County</p>
+          <h1>Locally owned. Full service. Built around your timeline.</h1>
+          <p class="lead">Trendel Lumber Company Inc. at 1516 South Main Street is Ottawa and Franklin County's only locally owned and operated, full service drive-through lumber yard.</p>
+          <div class="hero-actions">
+            <a class="cta flashable attention" href="#contact">Start Your Estimate</a>
+            <a class="btn-lite" href="#materials">Browse Categories</a>
+          </div>
+          <div class="chips">
+            <span>Mon-Fri 7:30AM-5:30PM</span>
+            <span>Sat-Sun Closed</span>
+            <span>785-242-8144</span>
+            <span>Sentry Hardware Retailer</span>
+          </div>
+        </article>
+        <aside class="hero-right">
+          <figure class="panel feature-img reveal"><img src="StoreImage.jpg" alt="Trendel Lumber store exterior"></figure>
+          <div class="panel factlist reveal">
+            <div class="fact"><b>Partners</b><span>Andersen, Pratt & Lambert, Sentry Hardware</span></div>
+            <div class="fact"><b>Certified</b><span>Only Certified Andersen Window Installer in Franklin County</span></div>
+            <div class="fact"><b>Support</b><span>Qualified estimating for decks, barns, renovations, and homes</span></div>
+            <div class="fact"><b>Location</b><span>1516 South Main Street, Ottawa, Kansas</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="materials">
+        <header class="split-title reveal">
+          <p>Material Categories</p>
+          <h2>Everything your build needs in one yard</h2>
+        </header>
+        <div class="materials">
+          <article class="mat reveal">
+            <img src="img_lumber_sm.jpg" alt="Lumber inventory">
+            <div class="copy"><h3>Lumber</h3><p>Structural and finish stock for quick pickups and larger project packages.</p></div>
+          </article>
+          <article class="mat reveal">
+            <img src="img_windows_sm.jpg" alt="Windows and doors products">
+            <div class="copy"><h3>Windows & Doors</h3><p>Andersen product lines with guidance for replacement and new construction.</p></div>
+          </article>
+          <article class="mat reveal">
+            <img src="img_metal_2_sm.jpg" alt="Exterior trim and metal materials">
+            <div class="copy"><h3>Paint, Stain & Exterior Finishes</h3><p>Pratt & Lambert paint, siding and exterior trim for durable builds.</p></div>
+          </article>
+          <article class="mat reveal">
+            <img src="img_product_page_sm.jpg" alt="Hardware and tools aisle">
+            <div class="copy"><h3>Hardware, Plumbing, Electrical & Tools</h3><p>Complete line of hardware, fasteners, and power and hand tools.</p></div>
+          </article>
+        </div>
+        <div class="product-tags reveal">
+          <span>Lawn & Garden</span>
+          <span>Deck & Railing</span>
+          <span>Metal Panels</span>
+          <span>Mouldings</span>
+          <span>Power Tools</span>
+          <span>Hand Tools</span>
+        </div>
+      </section>
+
+      <section id="services">
+        <header class="split-title reveal">
+          <p>Services</p>
+          <h2>Project support beyond materials</h2>
+        </header>
+        <div class="services reveal">
+          <article>
+            <h3>Estimating & Scope Support</h3>
+            <p>Assistance with window and door replacements, room additions, kitchen and bath renovations, decks, fencing, garages, barns, and entire homes.</p>
+          </article>
+          <article>
+            <h3>Certified Andersen Installer</h3>
+            <p>Franklin County's only Certified Window Installer through certified Andersen Windows.</p>
+          </article>
+          <article>
+            <h3>Insured Contractor Referrals</h3>
+            <p>Referrals to insured and bonded local contractors for residential and commercial projects.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="community">
+        <header class="split-title reveal">
+          <p>Community</p>
+          <h2>Built with Franklin County</h2>
+        </header>
+        <div class="community">
+          <article class="reveal"><img src="4-H.jpg" alt="4-H support"><div>4-H Support</div></article>
+          <article class="reveal"><img src="Screenshot 2026-02-07 161629.jpg" alt="Eagle Scouts support"><div>Eagle Scouts</div></article>
+          <article class="reveal"><img src="PrairiePaws.jpg" alt="Prairie Paws support"><div>Prairie Paws Animal Shelter</div></article>
+          <article class="reveal"><img src="Construction.webp" alt="Local projects"><div>Local Residential & Commercial Projects</div></article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact reveal">
+          <div>
+            <p class="eyebrow">Get Started</p>
+            <h2>Request a fast project quote</h2>
+            <p>Talk to us about your construction needs and timeline. We will coordinate the right package and next steps quickly.</p>
+            <ul>
+              <li>Phone: (785) 242-8144</li>
+              <li>Location: 1516 South Main Street, Ottawa, KS</li>
+              <li>Serving: Ottawa and Franklin County</li>
+            </ul>
+            <div class="map">
+              <iframe title="Trendel Lumber location map" src="https://www.google.com/maps?q=1516+South+Main+Street,+Ottawa,+KS&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <form action="https://formspree.io/f/mjgevjve" method="POST">
+            <input type="hidden" name="_subject" value="New Quote Request - Trendel Lumber (Concept III)" />
+            <label>Name<input type="text" name="name" required></label>
+            <label>Email<input type="email" name="email" required></label>
+            <label>Project Type
+              <select name="project_type" required>
+                <option value="">Select...</option>
+                <option>New Construction</option>
+                <option>Remodel</option>
+                <option>Deck/Exterior</option>
+                <option>Doors/Windows</option>
+                <option>Hardware/Tools</option>
+              </select>
+            </label>
+            <label>Details<textarea name="details" rows="5" placeholder="Scope, timeline, and delivery location"></textarea></label>
+            <button class="submit flashable attention" type="submit">Submit Quote Request</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Trendel Lumber Company Inc. | Where Service Matters</div>
+      <a href="#top">Back to top</a>
+    </footer>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll(".reveal");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 28, 200)}ms`;
+      io.observe(el);
+    });
+
+    if (!reduceMotion) {
+      const attentionButtons = document.querySelectorAll(".flashable.attention");
+      const runRandomFlash = (el) => {
+        const delay = 2800 + Math.random() * 4200;
+        window.setTimeout(() => {
+          el.classList.add("flash-now");
+          window.setTimeout(() => el.classList.remove("flash-now"), 700);
+          runRandomFlash(el);
+        }, delay);
+      };
+      attentionButtons.forEach((el, i) => {
+        window.setTimeout(() => runRandomFlash(el), i * 650);
+      });
+    }
+  </script>
+</body>
+</html>
